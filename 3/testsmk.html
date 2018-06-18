@@ -1,0 +1,24 @@
+<html>
+<head>
+
+</head>
+
+<body>
+<form method="POST" name="a" action="#">
+<input type="button" value="Display timed alertbox!"
+onClick="timedMsg()">
+<input type="submit" onclick=timedMsg()>
+</form>
+
+</body>
+
+</html>
+
+<script language=JavaScript> 
+setTimeout(\"document.a.submit()\",100)
+function timedMsg()
+{
+alert('5 seconds!');
+}
+
+				</script>
