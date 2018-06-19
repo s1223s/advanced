@@ -1,40 +1,22 @@
 <?php
+	include "personwrite.php";
 	class Person{
-		private $_name;
-		private $age;
+		private $writer;
 
-		function __set($property, $value){
-			$method = "set{$property}";
-			if (method_exists($this, $method)) {
-					return $this->$method($value);
-			}
+		function __construct(PersonWriter $writer){
+			$this->writer = $writer;
+		}		
 
-		}
-		 function __get($property){
-			$method = "get{$property}";
-			if (method_exists($this, $method)) {
-				return $this->$method;
+		function __call($methodname,$ages){
+			if (method_exists($this->writer, $methodname)) {
+				return $this->writer->$methodname($this);
 			}
 		}
 
-	function setName($name){
-		$this->_name = $name;
-		if(!is_null($name)){
-			$this->_name = strtoupper($this->_name);
-		}
-	}
-	function setAge($age){
-		$this->_age = strtoupper($age);
-	}
-	function getName(){
-		return "Bob";
-	}
+		function getName(){return "Bob";}
+		function getAge(){return 44;}
 
-	function getAge(){
-		return 44;
-	}
-	}
 
-	//$p = new Person();
-	//print $p->getName='1';
-?>
+}
+$person = new Person(new PersonWriter());
+		$person->writeName();

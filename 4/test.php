@@ -34,5 +34,5 @@ public function __get($name){                               //声明魔术方法
 $MyComputer = new SportObject();                                //实例化对象$MyComputer
 $MyComputer -> type = 'DIY';                                    //给变量赋值  
 $MyComputer -> type;                                        //调用变量$type
-$MyComputer -> cpu;                                        //调用变量$name
+	$MyComputer -> cpu;                                        //调用变量$name
 ?>
