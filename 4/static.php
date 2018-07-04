@@ -6,5 +6,11 @@
 		print "hello (".self::$aNum.")\n";
 
 			}
+		function __toString(){
+			echo  '1';
+		}
 	}
+
+	$a = new StaticExample;
+	print $a;
 ?>
